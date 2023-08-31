@@ -12,31 +12,34 @@ const initialState = {
 }
 
 const handlePending = (state) => {
-	state.isLoading = true
-	state.error = ''
-}
+  state.contacts.isLoading = true;
+  state.contacts.error = '';
+};
+
 const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
+  state.contacts.isLoading = false;
+  state.contacts.error = action.payload;
 };
 
 const handleFulfilled = (state) => {
-	state.isLoading = false
-}
+  state.contacts.isLoading = false;
+};
+
 
 
 const fetchAllContacts = (state, { payload }) => {
-  state.isLoading = false
-  state.items = payload.items
+  state.contacts.isLoading = false;
+  state.contacts.items = payload.items;
 }
 
 const addContactFulfilled = (state, { payload }) => {
-  state.items.push(payload);
+  state.contacts.items.push(payload);
 }
 
 const deleteContactFulfilled = (state, { payload }) => {
-	state.items = state.items.filter(contact => contact.id !== payload.id)
+  state.contacts.items = state.contacts.items.filter(contact => contact.id !== payload.id);
 }
+
 
 const contactsSlice = createSlice({
   name: 'contacts',

@@ -11,8 +11,8 @@ import {updateFilter} from '../redux/contactsSlice'
 import { nanoid } from '@reduxjs/toolkit';
 
 export const App = () => {
-  const contacts = useSelector(state => state.contacts.items);
-  const filter = useSelector(state => state.contacts.filter) ?? '';
+  const contacts = useSelector(state => state.contacts.contacts.items);
+  const filter = useSelector(state => state.filter) ?? '';
   const dispatch = useDispatch();
 
  const filteredContacts = contacts.filter(contact =>
