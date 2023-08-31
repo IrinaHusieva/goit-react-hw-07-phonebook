@@ -29,7 +29,7 @@ const handleFulfilled = (state) => {
 
 const fetchAllContacts = (state, { payload }) => {
   state.contacts.isLoading = false;
-  state.contacts.items = payload.items;
+  state.contacts.items = payload;
 }
 
 const addContactFulfilled = (state, { payload }) => {
@@ -37,9 +37,8 @@ const addContactFulfilled = (state, { payload }) => {
 }
 
 const deleteContactFulfilled = (state, { payload }) => {
-  state.contacts.items = state.contacts.items.filter(contact => contact.id !== payload.id);
+  state.contacts.items = state.contacts.items.filter(contact => contact.id !== payload);
 }
-
 
 const contactsSlice = createSlice({
   name: 'contacts',
